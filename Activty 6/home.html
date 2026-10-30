@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3faf3">
+  <meta name="description" content="I love science, and you do too. Explore big questions, fascinating discoveries, and science topics with Science IT.">
+  <title>Home | SCIENCE IT</title>
+  <style>
+    :root {
+      --green-900: #32612d;
+      --green-800: #4b6d1d;
+      --green-700: #607d3b;
+      --green-600: #3cb043;
+      --green-100: #eaf4e1;
+      --text: #263b25;
+      --muted: #5d7058;
+      --white: #fff;
+      --line: #dce9d5;
+      --shadow: 0 20px 50px rgba(50, 97, 45, .12);
+      --display-font: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: #fbfdfb; font-family: "Segoe UI", Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #62a875; outline-offset: 4px; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { position: sticky; z-index: 5; top: 0; border-bottom: 1px solid rgba(128,176,138,.35); background: rgba(248,252,248,.92); backdrop-filter: blur(12px); }
+    .nav { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand-logo { display: flex; flex: 0 0 auto; align-items: center; }
+    .brand-logo img { display: block; width: 68px; height: 62px; object-fit: contain; mix-blend-mode: multiply; }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .92rem; font-weight: 750; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--green-800); }
+    .nav-links a[aria-current="page"] { text-decoration: underline; text-decoration-color: #8abc8b; text-underline-offset: 7px; }
+    .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 0 19px; border: 1px solid transparent; border-radius: 999px; background: linear-gradient(135deg,var(--green-700),var(--green-600)); color: var(--white); font-size: .9rem; font-weight: 850; box-shadow: 0 9px 20px rgba(39,132,74,.2); transition: transform .2s, box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 13px 26px rgba(39,132,74,.26); }
+    .button.light { border-color: var(--line); background: var(--white); color: var(--green-800); box-shadow: none; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: 500px; margin: 34px 0 62px; padding: clamp(30px,6vw,72px); border: 1px solid rgba(255,255,255,.3); border-radius: 30px; color: var(--white); background: linear-gradient(90deg,#32612d 0%,rgba(50,97,45,.96) 38%,rgba(75,109,29,.76) 68%,rgba(116,183,46,.3) 100%),linear-gradient(125deg,rgba(50,97,45,.5),rgba(60,176,67,.2)),url("moodboard-life.jpg") center / cover no-repeat,linear-gradient(125deg,#32612d 0%,#4b6d1d 52%,#3cb043 100%); box-shadow: 0 25px 60px rgba(50,97,45,.22); }
+    .hero::before { position: absolute; z-index: 0; top: -250px; right: -150px; width: 650px; height: 650px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; content: ""; box-shadow: 0 0 0 35px rgba(255,255,255,.045),0 0 0 75px rgba(255,255,255,.03); pointer-events: none; }
+    .hero::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(0deg,rgba(50,97,45,.25),transparent 58%); content: ""; pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: block; max-width: 660px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: rgba(255,255,255,.12); color: #effff0; font-size: .77rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+    h1 { max-width: 640px; margin: 20px 0 17px; color: var(--white); font-family: var(--display-font); font-size: clamp(3.2rem,7vw,5.6rem); font-style: italic; line-height: .98; letter-spacing: -.055em; }
+    h1 span { color: #d0efa4; }
+    .hero-copy > p { max-width: 570px; margin: 0; color: rgba(255,255,255,.84); font-size: 1.08rem; line-height: 1.8; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .hero-note { margin-top: 23px; color: rgba(255,255,255,.72); font-size: .82rem; }
+    .hero-note strong { color: #c9f2cc; }
+    .section { padding: 76px 0; scroll-margin-top: 80px; }
+    .section-heading { max-width: 730px; margin-bottom: 29px; }
+    .kicker { color: var(--green-700); font-size: .75rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    h2 { margin: 9px 0 10px; color: var(--green-900); font-family: var(--display-font); font-size: clamp(2rem,4vw,3rem); font-style: italic; line-height: 1.1; letter-spacing: -.04em; }
+    .section-heading p { margin: 0; color: var(--muted); line-height: 1.8; }
+    .topic-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .topic-card { overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.86); box-shadow: 0 10px 27px rgba(20,92,56,.05); transition: transform .2s,box-shadow .2s; }
+    .topic-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .topic-art { position: relative; min-height: 160px; overflow: hidden; background: #eaf4e1; }
+    .topic-art::after { position: absolute; inset: 0; background: linear-gradient(0deg,rgba(50,97,45,.18),rgba(60,176,67,.04)); content: ""; pointer-events: none; }
+    .topic-art img { display: block; width: 100%; height: 160px; object-fit: cover; }
+    .topic-card:nth-child(2) .topic-art { background: #f5f0e6; }
+    .topic-card:nth-child(3) .topic-art { background: #eaf4e1; }
+    .topic-body { padding: 21px; }
+    .topic-body h3 { margin: 8px 0; color: var(--green-900); font-family: var(--display-font); font-size: 1.25rem; }
+    .topic-body p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
+    .topic-link { display: inline-flex; gap: 7px; margin-top: 14px; color: var(--green-800); font-size: .85rem; font-weight: 850; }
+    .love-section { padding: 0 0 76px; }
+    .love-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 26px; padding: 34px 40px; border: 1px solid #d3e8d5; border-radius: 24px; background: linear-gradient(115deg,#e8f6e9,#f6faf3); }
+    .love-panel h2 { margin-top: 8px; }
+    .love-panel p { max-width: 710px; margin: 0; color: var(--muted); line-height: 1.8; }
+    .love-stamp { display: grid; width: 112px; height: 112px; place-items: center; border: 1px solid rgba(31,123,71,.18); border-radius: 50%; background: rgba(255,255,255,.7); font-size: 3rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .why-card { padding: 22px; border-top: 2px solid #b9dabb; background: rgba(255,255,255,.6); }
+    .why-card .icon { font-size: 1.7rem; }
+    .why-card h3 { margin: 10px 0 7px; color: var(--green-900); font-size: 1.05rem; }
+    .why-card p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.75; }
+    .fact-box { display: flex; align-items: center; gap: 18px; margin-top: 34px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 17px; background: var(--white); }
+    .fact-icon { display: grid; width: 50px; height: 50px; flex: 0 0 auto; place-items: center; border-radius: 15px; background: var(--green-100); font-size: 1.6rem; }
+    .fact-box small { color: var(--green-700); font-size: .7rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .fact-box p { margin: 4px 0 0; color: var(--green-900); font-weight: 750; line-height: 1.6; }
+    .closing { padding: 58px 0; background: linear-gradient(115deg,#32612d,#4b6d1d 56%,#3cb043); color: var(--white); text-align: center; }
+    .closing h2 { margin: 0 0 10px; color: var(--white); }
+    .closing p { margin: 0 auto 22px; color: rgba(255,255,255,.78); line-height: 1.7; }
+    .closing .button { background: var(--white); color: var(--green-900); box-shadow: none; }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .about-card { position: relative; overflow: hidden; min-height: 245px; padding: 30px; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(145deg,rgba(234,244,225,.94),rgba(255,255,255,.96)); box-shadow: 0 12px 30px rgba(50,97,45,.08); }
+    .about-card::after { position: absolute; right: -48px; bottom: -72px; width: 190px; height: 190px; border: 1px solid rgba(96,125,59,.18); border-radius: 50%; content: ""; box-shadow: 0 0 0 22px rgba(96,125,59,.04),0 0 0 46px rgba(96,125,59,.03); pointer-events: none; }
+    .about-card h2 { position: relative; z-index: 1; }
+    .about-card p { position: relative; z-index: 1; max-width: 470px; margin: 12px 0 0; color: var(--muted); line-height: 1.8; }
+    footer { padding: 32px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; background: linear-gradient(115deg,#f3f8ed,#fbfdfb); }
+    .footer-inner { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 18px 30px; }
+    .footer-brand { color: var(--green-800); font-weight: 950; letter-spacing: .08em; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--green-800); }
+    .footer-profile { display: flex; flex-wrap: wrap; gap: 10px; grid-column: 1 / -1; }
+    .footer-profile span { padding: 9px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.8); color: var(--green-900); font-weight: 700; }
+    @media (max-width:760px) {
+      .container { width: min(100% - 32px,600px); }
+      .nav { flex-wrap: wrap; padding: 12px 0; }
+      .nav-links { order: 3; width: 100%; justify-content: space-around; gap: 12px; padding-top: 4px; }
+      .hero { min-height: 0; padding: 42px; }
+      .hero-grid { max-width: 620px; }
+      h1 { font-size: clamp(3.2rem,12vw,5rem); }
+      .section { padding: 58px 0; }
+      .topic-grid { grid-template-columns: 1fr 1fr; }
+      .topic-card:last-child { grid-column: 1 / -1; }
+      .love-section { padding-bottom: 58px; }
+      .love-panel { grid-template-columns: 1fr auto; padding: 26px; }
+      .why-grid { grid-template-columns: 1fr; gap: 12px; }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width:500px) {
+      .container { width: calc(100% - 28px); }
+      .nav-actions .button { min-height: 40px; padding-inline: 13px; font-size: .8rem; }
+      .brand-logo img { width: 58px; height: 54px; }
+      .hero-copy > p { font-size: 1rem; }
+      .hero { padding: 28px 22px; border-radius: 22px; }
+      .topic-grid { grid-template-columns: 1fr; }
+      .topic-card:last-child { grid-column: auto; }
+      .love-panel { grid-template-columns: 1fr; }
+      .love-stamp { width: 72px; height: 72px; font-size: 2rem; }
+      .footer-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .footer-links { width: 100%; justify-content: center; }
+      .footer-profile { justify-content: center; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="home.html" class="brand-logo" aria-label="Science IT home"><img src="officiallogo.jpg" alt="Science IT official logo"></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="home.html" aria-current="page">Home</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="services.html">Services</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="button" href="blogs.html">Explore topics <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="badge">🔬 A happy place for curious minds</span>
+          <h1>Discover the world through science.</h1>
+          <p>Explore biology, Earth science, chemistry, and technology through clear learning resources made for curious minds.</p>
+          <div class="hero-actions">
+            <a class="button" href="#discover">Let’s discover <span aria-hidden="true">→</span></a>
+            <a class="button light" href="blogs.html">Read science blogs</a>
+          </div>
+          <p class="hero-note"><strong>Ask questions.</strong> Find clues. Be amazed by what you learn.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="discover">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Pick a path and follow your curiosity</span>
+          <h2>There’s a whole lot to love about science.</h2>
+          <p>Science helps us understand how things work, how they change, and how everything is connected. Start with a topic that makes you say, “Tell me more!”</p>
+        </div>
+        <div class="topic-grid">
+          <article class="topic-card">
+            <div class="topic-art"><img src="moodboard-lab.jpg" alt="Researcher working in a science laboratory from the supplied moodboard"></div>
+            <div class="topic-body">
+              <span class="kicker">Life science</span>
+              <h3>Little cells, big stories</h3>
+              <p>Meet the building blocks of life and discover how DNA, cells, plants, animals, and people are connected.</p>
+              <a class="topic-link" href="blogs.html#biotechnology">Explore biotechnology <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="topic-card">
+            <div class="topic-art"><img src="moodboard-volcano.jpg" alt="Volcano erupting at night from the Science IT moodboard"></div>
+            <div class="topic-body">
+              <span class="kicker">Earth science</span>
+              <h3>Our ever-changing planet</h3>
+              <p>Explore volcanoes, rocks, weather, and the powerful forces that shape the place we call home.</p>
+              <a class="topic-link" href="blogs.html#volcanoes">Explore volcanoes <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          <article class="topic-card">
+            <div class="topic-art"><img src="moodboard-chemistry.jpg" alt="Molecular science imagery from the Science IT moodboard"></div>
+            <div class="topic-body">
+              <span class="kicker">Chemistry</span>
+              <h3>Everything is made of something</h3>
+              <p>Discover atoms and elements, and learn how their combinations make up the things around you.</p>
+              <a class="topic-link" href="blogs.html#biotechnology">Explore the elements <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+        <div class="fact-box">
+          <span class="fact-icon" aria-hidden="true">🌌</span>
+          <div><small>One tiny wonder</small><p>When you look at the night sky, you are seeing light that has traveled across space to reach your eyes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="love-section" aria-labelledby="love-title">
+      <div class="container love-panel">
+        <div>
+          <span class="kicker">Our favorite thing about science</span>
+          <h2 id="love-title">It’s for everybody.</h2>
+          <p>You do not need to know all the answers to be a scientist. You just need a question, an open mind, and the courage to keep wondering. Every great discovery starts somewhere!</p>
+        </div>
+        <div class="love-stamp" aria-hidden="true">💚</div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="kicker">Science is all around you</span>
+          <h2 id="why-title">Wonder today. Discover tomorrow.</h2>
+          <p>Look closely, try something new, or ask why. Here are a few ways science makes everyday life a little more extraordinary.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card"><span class="icon" aria-hidden="true">🔎</span><h3>Notice the little things</h3><p>Observe patterns in nature, notice how things change, and turn everyday moments into great questions.</p></article>
+          <article class="why-card"><span class="icon" aria-hidden="true">🧪</span><h3>Learn by exploring</h3><p>Read, investigate, and test ideas safely. Each new clue helps make the bigger picture clearer.</p></article>
+          <article class="why-card"><span class="icon" aria-hidden="true">🌿</span><h3>Care for our world</h3><p>Understanding living things and our planet can inspire us to make thoughtful choices for the future.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <h2>Ready for your next “wow” moment?</h2>
+        <p>Follow your curiosity and find a science story that makes you wonder.</p>
+        <a class="button" href="blogs.html">Explore science blogs <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section" aria-label="About Science IT">
+      <div class="container about-grid">
+        <article class="about-card" aria-labelledby="about-title">
+          <span class="kicker">About</span>
+          <h2 id="about-title">A place to explore science.</h2>
+          <p>Science IT is a web app created to help students explore science in a clear, approachable way. It offers learning content about chemistry and other science topics. The site encourages students to ask questions and keep learning.</p>
+        </article>
+        <article class="about-card" aria-labelledby="who-title">
+          <span class="kicker">Who are we?</span>
+          <h2 id="who-title">Made for science lovers.</h2>
+          <p>We are science lovers who enjoy discovering how the world works. We believe curiosity can lead to meaningful questions and new learning. Science IT brings science topics together for everyone who wants to explore.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="footer-brand" href="home.html">SCIENCE IT</a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="landingpage.html">Landing page</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="services.html">Services</a>
+      </nav>
+      <div class="footer-profile" aria-label="About me">
+        <span>I am an STE student.</span>
+        <span>I love Science.</span>
+        <span>I also love technology.</span>
+        <span>Maria Alliah T. Argente</span>
+        <span><a href="mailto:mariaalliah06@gmail.com">mariaalliah06@gmail.com</a></span>
+        <span>09485249155</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

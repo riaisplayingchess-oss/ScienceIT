@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3faf3">
+  <meta name="description" content="Explore Science IT articles about volcanoes, biotechnology, and the science shaping our world.">
+  <title>Science Blogs | SCIENCE IT</title>
+  <style>
+    :root {
+      --green-900: #113d2b;
+      --green-800: #145b36;
+      --green-700: #1f7b47;
+      --green-600: #2b9258;
+      --green-100: #eaf8ee;
+      --text: #1b352b;
+      --muted: #5d7367;
+      --white: #fff;
+      --line: #dceee0;
+      --shadow: 0 20px 50px rgba(19, 72, 44, .1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: #fbfdfb; font-family: "Segoe UI", Arial, sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid #62a875; outline-offset: 4px; }
+    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { position: sticky; z-index: 5; top: 0; border-bottom: 1px solid rgba(128,176,138,.35); background: rgba(248,252,248,.92); backdrop-filter: blur(12px); }
+    .nav { display: flex; min-height: 72px; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { color: var(--green-800); font-size: 1.45rem; font-weight: 950; letter-spacing: 1px; }
+    .brand span { color: var(--green-600); }
+    .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: .92rem; font-weight: 750; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--green-800); }
+    .nav-links a[aria-current="page"] { text-decoration: underline; text-decoration-color: #8abc8b; text-underline-offset: 7px; }
+    .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 8px; padding: 0 17px; border: 1px solid transparent; border-radius: 999px; background: linear-gradient(135deg,var(--green-700),var(--green-600)); color: var(--white); font-size: .85rem; font-weight: 850; box-shadow: 0 9px 20px rgba(39,132,74,.18); transition: transform .2s,box-shadow .2s; }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 13px 26px rgba(39,132,74,.26); }
+    .hero { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr; align-items: center; min-height: 510px; margin: 34px auto 22px; padding: clamp(30px,6vw,72px); overflow: hidden; border: 1px solid rgba(255,255,255,.24); border-radius: 28px; color: var(--white); background: linear-gradient(90deg,#113d2b 0%,rgba(17,61,43,.97) 38%,rgba(23,107,62,.7) 68%,rgba(43,146,88,.26) 100%),linear-gradient(125deg,rgba(17,61,43,.55),rgba(43,146,88,.18)),url("image(2).jpg") center / cover no-repeat,linear-gradient(125deg,#113d2b 0%,#176b3e 52%,#2b9258 100%); box-shadow: 0 25px 60px rgba(17,61,43,.2); }
+    .hero::before { position: absolute; z-index: 0; top: -230px; right: -120px; width: 540px; height: 540px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; content: ""; box-shadow: 0 0 0 35px rgba(255,255,255,.03),0 0 0 72px rgba(255,255,255,.02); }
+    .hero::after { position: absolute; z-index: 0; inset: 0; background: linear-gradient(0deg,rgba(17,61,43,.24),transparent 58%); content: ""; pointer-events: none; }
+    .hero-copy { position: relative; z-index: 1; max-width: 700px; }
+    .eyebrow { color: #c8f0d0; font-size: .75rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { max-width: 650px; margin: 13px 0 15px; color: var(--white); font-size: clamp(2.8rem,6vw,4.6rem); line-height: 1; letter-spacing: -.06em; }
+    h1 span { color: #a9e6b1; }
+    .hero-copy p { max-width: 610px; margin: 0; color: rgba(255,255,255,.84); font-size: 1.04rem; line-height: 1.85; }
+    .article-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+    .article-nav a { padding: 10px 14px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: rgba(255,255,255,.12); color: var(--white); font-size: .83rem; font-weight: 800; }
+    .article-nav a:hover { background: rgba(255,255,255,.22); }
+    .article { padding: 53px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 84px; }
+    .article:last-of-type { border-bottom: 0; }
+    .article-header { display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: center; margin-bottom: 28px; }
+    .article-icon { display: grid; width: 112px; height: 112px; place-items: center; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg,#eaf6eb,#f7fbf4); font-size: 3.7rem; }
+    #volcanoes .article-icon { background: linear-gradient(145deg,#fbf0df,#fff8ec); }
+    .article h2 { margin: 8px 0 9px; color: var(--green-900); font-size: clamp(2rem,4vw,3rem); line-height: 1.08; letter-spacing: -.045em; }
+    .article-intro { max-width: 790px; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+    .article-content { display: grid; grid-template-columns: 1fr 275px; gap: 38px; align-items: start; }
+    .prose p { margin: 0 0 18px; color: #455e4d; line-height: 1.88; }
+    .prose h3 { margin: 28px 0 9px; color: var(--green-900); font-size: 1.22rem; }
+    .prose ul { display: grid; gap: 10px; margin: 12px 0 22px; padding-left: 23px; color: #455e4d; line-height: 1.75; }
+    .note-card { padding: 21px; border: 1px solid var(--line); border-radius: 18px; background: #f4faf3; }
+    .note-card .note-icon { font-size: 1.7rem; }
+    .note-card h3 { margin: 9px 0; color: var(--green-900); font-size: 1rem; }
+    .note-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+    .note-card .small-label { display: block; margin-top: 14px; color: var(--green-700); font-size: .68rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+    .safety-note { margin-top: 20px; padding: 14px 16px; border-left: 3px solid #d29953; border-radius: 0 10px 10px 0; background: #fff8ed; color: #654c2c; font-size: .87rem; line-height: 1.7; }
+    .closing { margin: 10px 0 65px; padding: 31px 35px; border: 1px solid #d3e8d5; border-radius: 22px; background: linear-gradient(115deg,#e8f6e9,#f6faf3); }
+    .closing h2 { margin: 0 0 8px; color: var(--green-900); font-size: 1.65rem; }
+    .closing p { margin: 0 0 18px; color: var(--muted); line-height: 1.75; }
+    footer { padding: 24px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .footer-brand { color: var(--green-800); font-weight: 950; letter-spacing: .08em; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--green-800); }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px,600px); }
+      .nav { flex-wrap: wrap; padding: 12px 0; }
+      .nav-links { order: 3; width: 100%; justify-content: space-around; gap: 12px; padding-top: 4px; }
+      .hero { min-height: 0; padding: 34px; }
+      .article { padding: 40px 0; }
+      .article-header { grid-template-columns: 78px 1fr; gap: 16px; }
+      .article-icon { width: 76px; height: 76px; border-radius: 20px; font-size: 2.6rem; }
+      .article-content { grid-template-columns: 1fr; gap: 15px; }
+      .note-card { display: grid; grid-template-columns: 36px 1fr; column-gap: 10px; }
+      .note-card .note-icon { grid-row: span 2; }
+      .note-card h3 { margin: 2px 0 5px; }
+      .note-card p,.note-card .small-label { grid-column: 2; }
+      .closing { padding: 25px; }
+    }
+    @media (max-width: 480px) {
+      .container { width: calc(100% - 28px); }
+      .brand { font-size: 1.25rem; }
+      .nav-actions .button { min-height: 40px; padding-inline: 13px; font-size: .8rem; }
+      .hero { min-height: 0; padding: 25px 20px; }
+      .article-header { grid-template-columns: 1fr; gap: 14px; }
+      .article-icon { width: 66px; height: 66px; font-size: 2.2rem; }
+      .footer-inner { flex-wrap: wrap; justify-content: center; text-align: center; }
+      .footer-links { width: 100%; justify-content: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="home.html" class="brand" aria-label="Science IT home">SCIENCE <span>IT</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="home.html">Home</a>
+        <a href="blogs.html" aria-current="page">Blogs</a>
+        <a href="services.html">Services</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="button" href="landingpage.html">Back to landing page <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow">Science stories for curious minds</span>
+        <h1>Explore science.<br><span>Follow your curiosity.</span></h1>
+        <p>Read approachable stories about volcanoes, biotechnology, and the science that helps us understand the world around us.</p>
+        <nav class="article-nav" aria-label="Science blog topics">
+          <a href="#volcanoes">🌋 Volcanoes</a>
+          <a href="#biotechnology">🧬 Biotechnology</a>
+        </nav>
+      </div>
+    </section>
+
+    <div class="container">
+      <article class="article" id="volcanoes">
+        <header class="article-header">
+          <div class="article-icon" aria-hidden="true">🌋</div>
+          <div>
+            <span class="eyebrow">Earth science · 6 minute read</span>
+            <h2>Volcanoes: windows into a restless Earth</h2>
+            <p class="article-intro">Volcanoes reveal some of the powerful processes happening beneath Earth's surface. Learning how they form helps us understand a planet that is always changing.</p>
+          </div>
+        </header>
+        <div class="article-content">
+          <div class="prose">
+            <h3>What is a volcano?</h3>
+            <p>A volcano is an opening in Earth's crust through which molten rock, gases, and other material can reach the surface. Deep underground, molten rock is called <strong>magma</strong>. When it erupts onto the surface, it is called <strong>lava</strong>. As lava and ash cool, they can build up into the familiar mountain-shaped volcano—but volcanoes can also form other shapes.</p>
+            <h3>Why do volcanoes form?</h3>
+            <p>Earth's outer shell is divided into huge pieces called tectonic plates. Many volcanoes occur where these plates interact. At some boundaries, one plate sinks beneath another and rock can melt. At others, plates move apart and magma rises into the opening. Volcanoes can also form above hot spots in the mantle, far from plate boundaries.</p>
+            <h3>Not every eruption is the same</h3>
+            <p>An eruption's behavior depends on factors such as how much gas is in the magma and how easily it flows. Runny magma can let gas escape more readily, while thicker magma may trap gas and build pressure. Eruptions may release lava flows, ash, or gases, and conditions can change as an eruption develops.</p>
+            <h3>How scientists study volcanoes</h3>
+            <p>Volcano observatories combine many kinds of measurements to watch for changes. Scientists may track small earthquakes, ground deformation, gas emissions, and temperature. These observations help experts assess activity and share updates, but they cannot make every eruption perfectly predictable.</p>
+            <ul>
+              <li><strong>Seismometers</strong> record ground shaking and earthquakes.</li>
+              <li><strong>GPS and satellite data</strong> can show when the ground changes shape.</li>
+              <li><strong>Gas and heat measurements</strong> can reveal changes in volcanic activity.</li>
+            </ul>
+            <div class="safety-note"><strong>Safety first:</strong> Volcanoes can be dangerous. Follow local authorities and official volcano observatory guidance; never enter restricted areas to observe an eruption.</div>
+          </div>
+          <aside class="note-card" aria-label="Volcano fact">
+            <span class="note-icon" aria-hidden="true">🧭</span>
+            <h3>Look beneath the surface</h3>
+            <p>Volcanoes are part of Earth's long-running rock cycle. Erupted material can cool into new igneous rock, while weathering and erosion continue to reshape the landscape.</p>
+            <span class="small-label">A world in motion</span>
+          </aside>
+        </div>
+      </article>
+
+      <article class="article" id="biotechnology">
+        <header class="article-header">
+          <div class="article-icon" aria-hidden="true">🧬</div>
+          <div>
+            <span class="eyebrow">Life science · 6 minute read</span>
+            <h2>Biotechnology: using biology to solve problems</h2>
+            <p class="article-intro">Biotechnology uses living organisms, cells, or biological molecules to create useful products and processes. It connects discoveries about life with practical ideas that can help people.</p>
+          </div>
+        </header>
+        <div class="article-content">
+          <div class="prose">
+            <h3>Biotechnology is older than you might think</h3>
+            <p>People have used living things to make useful products for thousands of years. Yeast helps bread rise, and microorganisms help turn milk into foods such as yogurt. Modern biotechnology builds on this long history with tools that help researchers study cells, genes, and biological processes in greater detail.</p>
+            <h3>DNA: instructions inside living cells</h3>
+            <p>DNA stores biological information in most living things. A gene is a stretch of DNA that helps provide instructions for making a functional product, often a protein. Proteins perform many jobs in cells, from helping reactions happen to supporting cell structure. Studying DNA can help scientists understand how organisms function and how traits are inherited.</p>
+            <h3>Where biotechnology is used</h3>
+            <ul>
+              <li><strong>Health:</strong> Biological processes are used to make some medicines, vaccines, and diagnostic tests.</li>
+              <li><strong>Food and agriculture:</strong> Fermentation makes foods, while plant breeding and other methods can help develop crops with useful traits.</li>
+              <li><strong>Research:</strong> Laboratory tools help scientists study cells, genes, and how living systems work.</li>
+              <li><strong>Environment:</strong> Some microorganisms can help break down particular pollutants under the right conditions.</li>
+            </ul>
+            <h3>Careful science matters</h3>
+            <p>Biotechnology is a broad field, and each application needs to be assessed on its own evidence and context. Researchers consider safety, effectiveness, possible environmental effects, and ethical questions. Responsible science includes transparent testing, careful review, and clear communication about what is known and what remains uncertain.</p>
+            <h3>A field built on curiosity</h3>
+            <p>From the microbes in food to the cells that make up our bodies, life science offers countless questions to explore. Biotechnology shows how learning how living systems work can inspire new tools and ideas.</p>
+          </div>
+          <aside class="note-card" aria-label="Biotechnology fact">
+            <span class="note-icon" aria-hidden="true">🍞</span>
+            <h3>A familiar example</h3>
+            <p>When yeast ferments sugars in bread dough, it releases carbon dioxide. The gas forms bubbles that help the dough rise as it rests and bakes.</p>
+            <span class="small-label">Biology in everyday life</span>
+          </aside>
+        </div>
+      </article>
+
+      <section class="closing" aria-labelledby="more-title">
+        <h2 id="more-title">Keep following your curiosity.</h2>
+        <p>There is always another question to ask—and another corner of science to explore.</p>
+        <a class="button" href="home.html">Back to Science IT home <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="footer-brand" href="home.html">SCIENCE IT</a>
+      <span>Explore. Learn. Discover.</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="home.html">Home</a>
+        <a href="services.html">Services</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
